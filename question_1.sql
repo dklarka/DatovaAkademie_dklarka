@@ -8,7 +8,7 @@ SELECT
 	,(wage - wageLY) AS YearDif
 -- select distinct industry
 -- select count(*) --420 
-FROM t_Klara_Dvorakova_project_SQL_primary_final as pft
+FROM t_Klara_Dvorakova_project_SQL_primary_final as p
 WHERE 1=1
 AND wage IS NOT NULL
 AND wageLY IS NOT NULL

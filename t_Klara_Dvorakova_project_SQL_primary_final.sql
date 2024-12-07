@@ -15,7 +15,7 @@ SELECT code, name FROM data_academy_2024_09_26.czechia_payroll_value_type;
 
 
 -- MZDY MOJE UPRAVA
-CREATE OR REPLACE VIEW view_payroll AS
+CREATE OR REPLACE VIEW view_dklarka_payroll AS
 SELECT 
 	Avg(coalesce(p.value,0)) AS wage
 	-- ,p.value_type_code
@@ -48,7 +48,7 @@ WHERE 1=1
  ORDER BY pin.name, payroll_year, payroll_quarter
  -- SELECT * FROM view_payroll
 ;
-CREATE OR REPLACE VIEW view_payroll_final AS
+CREATE OR REPLACE VIEW view_dklarka_payroll_final AS
 SELECT 
 	 p.year
 	,p.industry
@@ -61,7 +61,7 @@ LEFT JOIN view_payroll AS p2 ON p.year = p2.year+1 AND p.industry = p2.industry
 
 
 
-CREATE OR REPLACE VIEW view_foodprice AS
+CREATE OR REPLACE VIEW view_dklarka_foodprice AS
 SELECT 
 	 YEAR(date_from) AS year
 	-- ,date_to
@@ -78,7 +78,7 @@ WHERE 1=1
 GROUP BY prc.name, YEAR(date_from),prc.price_value,prc.price_unit
 ;
 
-CREATE OR REPLACE VIEW view_foodprice_final AS
+CREATE OR REPLACE VIEW view_dklarka_foodprice_final AS
 SELECT 
 	 f.year
 	,f.category
@@ -101,7 +101,7 @@ SELECT
 	,vp.wage 
 	,vp.wageLY
 	,NULL AS category
-	,null AS price_value
+	,NULL AS price_value
 	,null AS price_unit
 	,null AS FoodPrice
 	,null AS FoodPriceLY
@@ -124,4 +124,14 @@ FROM view_foodprice_final as vf
 -- tabulka obsahuje po rocích 1. mzdy za odvětví 2. Ceny kategorií potravin. Je to řídká matice. 
 SELECT * FROM t_Klara_Dvorakova_project_SQL_primary_final
  
+DROP VIEW IF EXISTS view_dklarka_payroll;
+DROP VIEW IF EXISTS view_dklarka_payroll_final;
+DROP VIEW IF EXISTS view_dklarka_foodprice;
+DROP VIEW IF EXISTS view_dklarka_foodprice_final;
 
+/*
+DROP VIEW IF EXISTS view_payroll;
+DROP VIEW IF EXISTS view_payroll_final;
+DROP VIEW IF EXISTS view_foodprice;
+DROP VIEW IF EXISTS view_foodprice_final;
+*/
