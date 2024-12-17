@@ -8,12 +8,16 @@ FROM t_Klara_Dvorakova_project_SQL_secondary_final AS c;
 
 SELECT 
 	 p.`year` 
-	,AVG(p.wage)
-	,AVG(p.FoodPrice)
-	,p.category 
+	,AVG(p.wage) AS avgWage
+	,AVG(p.FoodPrice) AS avgFoodPrice
+	-- ,p.category
+	,c.GDP
+	,c.GDPLY
 -- SELECT *
 FROM t_Klara_Dvorakova_project_SQL_primary_final AS p
 LEFT JOIN t_Klara_Dvorakova_project_SQL_secondary_final AS c ON p.`year` = c.`year`
 WHERE 1=1
 AND c.GDP IS NOT NULL
-GROUP BY p.`year` , p.category ;
+GROUP BY p.`year`, c.GDP, c.GDPLY  
+HAVING AVG(p.FoodPrice) IS NOT NULL
+;
