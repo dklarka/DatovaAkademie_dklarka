@@ -1,11 +1,6 @@
 -- 5) Má výška HDP vliv na změny ve mzdách a cenách potravin? 
 -- Neboli, pokud HDP vzroste výrazněji v jednom roce, projeví se to na cenách potravin či mzdách ve stejném nebo následujícím roce výraznějším růstem?
 
-SELECT * 
-FROM t_Klara_Dvorakova_project_SQL_primary_final AS p
-WHERE 1=1
-AND p.FoodPrice IS NOT NULL;
-
 -- create view pro přidání předpředchozího roku, abychom mohli sledovat změnu potravin a mezd za následující rok
 CREATE OR REPLACE VIEW view_Klara_Dvorakova_GDP AS 
 SELECT 

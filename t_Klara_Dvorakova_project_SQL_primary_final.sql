@@ -15,11 +15,10 @@ LEFT JOIN czechia_payroll_industry_branch as pin ON p.industry_branch_code = pin
 LEFT JOIN czechia_payroll_value_type as pvt ON p.value_type_code = pvt.code 
 WHERE 1=1
  AND pvt.name != 'Průměrný počet zaměstnaných osob'
- AND pcal.name = 'přepočtený'
+ AND pcal.name = 'přepočtený' 
  GROUP BY payroll_year, pcal.name, pin.name 
  ORDER BY pin.name, payroll_year, payroll_quarter
- -- SELECT * FROM view_dklarka_foodprice_final
-;
+ ;
 
 -- Vytvoření druhého view PAYROLL které join sám se sebou abychom viděli mzdu z minulého roku
 CREATE OR REPLACE VIEW view_dklarka_payroll_final AS

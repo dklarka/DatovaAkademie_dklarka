@@ -8,7 +8,7 @@
 		FROM t_Klara_Dvorakova_project_SQL_primary_final as p1
 		WHERE 1=1
 		AND p1.year = p.year
-		) as avgWage -- Poddotaz vrací průměrnou mzdu (wage) pro konkrétní rok
+		) as avgWage -- Poddotaz vrací průměrnou mzdu pro konkrétní rok
 	,ROUND( (SELECT AVG(p1.wage)
 		FROM t_Klara_Dvorakova_project_SQL_primary_final as p1
 		WHERE 1=1
@@ -22,6 +22,6 @@
 ;
 
 
--- Chleba je možné si koupit za průměrný plat 1308 kg za 1. období (rok 2006) a za poslední období to je 1 363 (rok 2018). 
--- Mléka je možné si koupit za průměrný plat 1460l za 1. srovnatelné období (rok 2006) a za poslední srovnatelné období je možné si ho koupit 1 667 (rok 2018)
+-- Chleba je možné si koupit za průměrný plat 1 308 kg za 1. období (rok 2006) a za poslední období to je 1 363 kg (rok 2018). 
+-- Mléka je možné si koupit za průměrný plat 1 460 l za 1. srovnatelné období (rok 2006) a za poslední srovnatelné období je možné si ho koupit 1 667 l (rok 2018)
 
