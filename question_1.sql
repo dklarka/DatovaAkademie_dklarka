@@ -12,7 +12,6 @@ FROM t_Klara_Dvorakova_project_SQL_primary_final as p
 WHERE 1=1
 AND wage IS NOT NULL
 AND wageLY IS NOT NULL
- -- AND CASE WHEN wage-wageLY > 0 THEN '+' ELSE '-' END = '-' 
 ;
 
 
