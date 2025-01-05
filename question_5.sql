@@ -53,7 +53,7 @@ SELECT
 	,w.avgWage 
 	,w.avgWageLY 
 	,(ROUND(g.GDP /g.GDPLY, 4) * 100) - 100 AS GDPpct -- Procentuální změna HDP oproti předchozímu roku
-	,(ROUND(g.GDP /g.GDPLLY, 4) * 100) - 100 AS GDPpct2 -- Procentuální změna HDP oproti předpředchozímu roku
+	,(ROUND(g.GDPLY /g.GDPLLY, 4) * 100) - 100 AS GDPpct2 -- Procentuální změna HDP předchozího oproti předpředchozímu roku
 	,(ROUND(w.avgWage /w.avgWageLY, 4) * 100) - 100 AS wagePct -- Procentuální změna mezd oproti předchozímu roku
 	,(ROUND( f.avgFoodPrice / f.avgFoodPriceLY, 4) * 100) - 100 AS foodPct -- Procentuální změna mezd oproti předpředchozímu roku
 FROM view_Klara_Dvorakova_GDP AS g
